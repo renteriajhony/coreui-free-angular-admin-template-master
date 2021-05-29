@@ -1,0 +1,146 @@
+<div class="animated fadeIn">
+  <div class="row col-sm-12 justify-content-center">
+    <div class="card">
+      <div class="card-header">
+        <strong>Mercancia</strong>
+        <small>Form</small>
+      </div>
+      <div class="card-body">
+        <form
+          action=""
+          [formGroup]="mercanciaForm"
+          method="post"
+          class="form-horizontal"
+        >
+          <div class="row">
+            <div class="form-group col-sm-4">
+              <label for="codigo">Codigo</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="codigo"
+                id="codigo"
+                placeholder="Codigo"
+              />
+            </div>
+            <div class="form-group col-sm-8">
+              <label for="nombre">Nombre</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="nombre"
+                id="nombre"
+                placeholder="Nombre mercancia"
+              />
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-sm-3">
+              <label for="cantidad">Cantidad</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="cantidad"
+                id="cantidad"
+                placeholder="10000"
+              />
+            </div>
+            <div class="form-group col-sm-4">
+              <label for="usuarioRegistra">Usuario Registra</label>
+              <select
+                class="form-control"
+                id="usuarioRegistra"
+                formControlName="usuarioRegistra"
+              >
+                <option value="" [disabled]="true">Seleccione...</option>
+                <option
+                  *ngFor="let item of usuarioList"
+                  value="{{ item.codigo }}"
+                >
+                  {{ item.nombre }} {{ item.apellido }}
+                </option>
+              </select>
+            </div>
+            <div class="form-group col-sm-5">
+              <label for="fechaIngreso">Fecha Ingreso</label>
+              <input
+                type="date"
+                class="form-control"
+                formControlName="fechaIngreso"
+                id="fechaIngreso"
+              />
+            </div>
+          </div>
+          <!--/.row-->
+        </form>
+      </div>
+      <div class="card-footer">
+        <button
+          type="button"
+          class="btn btn-sm btn-primary"
+          (click)="ngViewAccion()"
+        >
+          <i class="fa fa-dot-circle-o"></i>{{ label_accion }}
+        </button>
+        <button
+          type="reset"
+          class="btn btn-sm btn-danger"
+          (click)="ngViewReset()"
+        >
+          <i class="fa fa-ban"></i> Reset
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="row col-lg-12 justify-content-center">
+      <div class="card" style="overflow-x:auto;">
+        <div class="card-header">
+          <i class="fa fa-align-justify"></i> Mercancia
+        </div>
+        <div class="card-body">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Usuario Registra</th>
+                <th>Fecha ingreso</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of mercanciaList">
+                <td>{{ item.codigo }}</td>
+                <td>{{ item.nombre }}</td>
+                <td>{{ item.cantidad }}</td>
+                <td>
+                  {{ item.usuarioRegistra.nombre }}
+                  {{ item.usuarioRegistra.apellido }}
+                </td>
+                <td>{{ item.fechaIngreso }}</td>
+                <td>
+                  <i
+                    class="fa fa-edit fa-lg mt-4"
+                    (click)="ngViewToEdit(item)"
+                  ></i>
+                </td>
+              </tr>
+            </tbody>
+            <thead>
+              <tr>
+                <th>Codigo</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Usuario Registra</th>
+                <th>Fecha ingreso</th>
+                <th></th>
+              </tr>
+            </thead>
+          </table>
+        </div>
+      </div>
+    </div>
+  <!--/.col-->
+</div>

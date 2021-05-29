@@ -1,0 +1,112 @@
+<div class="animated fadeIn">
+<div class="row col-sm-12 justify-content-center">
+  <div class="card">
+    <div class="card-header">
+      <strong>Usuario</strong>
+      <small>Form</small>
+    </div>
+    <div class="card-body">
+      <form action="" [formGroup]="usuarioForm" method="post" class="form-horizontal">
+      <div class="row col-sm-8">
+        <div class="form-group col-sm-4">
+          <label for="codigo">Codigo</label>
+          <input type="text" class="form-control" formControlName='codigo' id="codigo" placeholder="Codigo">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="nombre">Nombre</label>
+          <input type="text" class="form-control" formControlName='nombre' id="nombre" placeholder="Juan Valdez">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="apellido">Apellido</label>
+          <input type="text" class="form-control" formControlName='apellido' id="apellido" placeholder="Valdez">
+        </div>
+      </div>
+      <div class="row col-sm-12">
+        <div class="form-group col-sm-4">
+          <label for="cargo">Cargo</label>
+          <select class="form-control" id="cargo" formControlName='cargo'>
+            <option value="" [disabled]="true">Seleccione...</option>
+            <option *ngFor="let item of cargoList" value="{{ item.codigo }}" > {{ item.nombre }}</option>
+          </select>
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="fechaNacimiento">Fecha Nacimiento</label>
+          <input type="date" class="form-control" formControlName='fechaNacimiento'  id="fechaNacimiento">
+        </div>
+        <div class="form-group col-sm-4">
+          <label for="fechaIngresoCompania">Fecha Ingreso compañia</label>
+          <input type="date" class="form-control" formControlName='fechaIngresoCompania'  id="fechaIngresoCompania">
+        </div>
+      </div><!--/.row-->
+      <div class="row col-sm-12">
+        <div class="form-group col-sm-6">
+          <label for="nickname">Nickname</label>
+          <input type="text" class="form-control" formControlName='nickname' id="nickname" placeholder="nickname">
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" formControlName='password' id="password" placeholder="Juan Valdez">
+        </div>
+      </div>
+
+    </form>
+    </div>
+    <div class="card-footer">
+      <button type="button" class="btn btn-sm btn-primary" (click)="ngViewAccion()" ><i class="fa fa-dot-circle-o"></i>{{ label_accion }}</button>
+      <button type="reset" class="btn btn-sm btn-danger" (click)="ngViewReset()"><i class="fa fa-ban"></i> Reset</button>
+    </div>
+  </div>
+</div>
+
+<div class="row col-lg-12 justify-content-center">
+  <div class="col-lg-12">
+    <div class="card"style="overflow-x:auto;">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Usuarios
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Fecha NAciemiento</th>
+              <th>Cargo</th>
+              <th>Fecha Ingreso Compania</th>
+              <th>Nickname</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of usuarioList" >
+              <td>{{ item.codigo }}</td>
+              <td> {{ item.nombre }}</td>
+              <td>{{ item.apellido }}</td>
+              <td>{{ item.fechaNacimiento }}</td>
+              <td>{{ item.cargo.nombre }}</td>
+              <td>{{ item.fechaIngresoCompania }}</td>
+              <td>{{ item.nickname }}</td>
+              <td><i class="fa fa-edit fa-lg mt-4" (click)="ngViewToEdit(item)"></i></td>
+            </tr>
+          </tbody>
+          <thead>
+            <tr>
+              <th>Codigo</th>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Fecha NAciemiento</th>
+              <th>Cargo</th>
+              <th>Fecha Ingreso Compania</th>
+              <th>Nickname</th>
+              <th></th>
+            </tr>
+          </thead>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!--/.col-->
+</div>
+<!--/.col-->
+</div>
