@@ -10,3 +10,14 @@ export class Mercancia {
 
   constructor() {}
 }
+
+export class Producto {
+
+  public codigo: Number;
+  public nombre: String;
+  public cantidad: Number;
+  public usuarioRegistra: Usuario;
+  public fechaIngreso: String;
+
+  constructor() {}
+}

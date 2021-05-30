@@ -91,6 +91,10 @@ export const routes: Routes = [
         loadChildren: () => import('./views/mercancia/mercancia.module').then(m => m.MercanciaModule)
       },
       {
+        path: 'movimiento',
+        loadChildren: () => import('./views/movimiento/movimiento.module').then(m => m.MovimientoModule)
+      },
+      {
         path: 'widgets',
         loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
       }
