@@ -24,6 +24,11 @@ export class MercanciaService {
     return this.httpClient.get<Mercancia[]>(`${this.urlBase}/getAll`,  this.header);
   }
 
+  public getByName( nombre: string ) {
+    const body = `name=${nombre}`;
+    return this.httpClient.post<Mercancia>(`${this.urlBase}/getByName?name=${nombre}`, body, this.header).toPromise();
+  }
+
   update(form: FormGroup) {
     const body: JSON = <JSON><unknown>{
       "codigo": form.controls.codigo.value,
@@ -45,5 +50,9 @@ export class MercanciaService {
     };
     console.log(body);
     return this.httpClient.post<any>(`${this.urlBase}/guardar`, body, this.header).toPromise();
+  }
+
+  delete(mercancia: Mercancia) {
+    return this.httpClient.delete<Mercancia>(`${this.urlBase}/delete/${mercancia.codigo}`, this.header).toPromise();
   }
 }

@@ -21,4 +21,9 @@ export const navItems: INavData[] = [
     url: '/mercancia',
     icon: 'cil-apple',
   },
+  {
+    name: 'Movimiento',
+    url: '/movimiento',
+    icon: 'cil-loop-circular',
+  }
 ];
