@@ -24,6 +24,6 @@ export const navItems: INavData[] = [
   {
     name: 'Movimiento',
     url: '/movimiento',
-    icon: 'cil-apple',
+    icon: 'cil-loop-circular',
   }
 ];
