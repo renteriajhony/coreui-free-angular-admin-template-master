@@ -1,4 +1,4 @@
-# usuario: admin, clave: admin
+# Datos para entrar al sistema ---> usuario: admin, clave: admin
 
 [![@coreui angular](https://img.shields.io/badge/@coreui%20-angular-lightgrey.svg?style=flat-square)](https://github.com/coreui/angular)
 [![npm package][npm-coreui-angular-badge]][npm-coreui-angular]
